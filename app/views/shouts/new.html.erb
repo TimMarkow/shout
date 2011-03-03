@@ -1,0 +1,14 @@
+<div>
+<p>
+<%= form_for @article, :url => shouts_path do |form|%>
+	<%= form.label :name %>
+	<%= form.text_field :name %>
+</p>
+<p>	
+	<%= form.label :body %>
+	<%= form.text_area :body%>
+	
+	<%= form.submit %>
+</p>	
+<% end %>	
+</div>
