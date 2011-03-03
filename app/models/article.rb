@@ -1,5 +1,9 @@
 class Article < ActiveRecord::Base
-  validates_presence_of :name, :body => true
+  has_many :comments
+  
+  validates_presence_of :name, :body
+  
+  
   
   def to_s
     name
