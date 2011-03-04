@@ -10,7 +10,7 @@ class ShoutsController < ApplicationController
   def create
     @article = Article.new(params[:article])
     if @article.save
-      redirect_to root_url, :notice => "The article has been created."
+      redirect_to shouts_url, :notice => "The article has been created."
     else  
     flash.now[:notice] = 'The article requires a name and body.'
     render :new
