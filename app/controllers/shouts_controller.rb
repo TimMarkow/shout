@@ -1,5 +1,8 @@
 class ShoutsController < ApplicationController
-  
+  def index
+     @articles = Article.all
+   end
+   
   def new  
     @article = Article.new
   end
@@ -14,11 +17,9 @@ class ShoutsController < ApplicationController
   end
   end
   
-  def index
-    @articles = Article.all
-  end
-  
   def show
     @article = Article.find(params[:id])
+    @comment = @article.comments.new
+    @comments = @article.comments
   end
 end

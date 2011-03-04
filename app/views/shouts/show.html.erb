@@ -1,2 +1,21 @@
-<h1><%= @article.name %></h1><br />
-<p><%= @article.body %></p>
+<h1><%= @article.name %></h1>
+
+<div>
+	<%= simple_format @article_body %>
+</div>
+
+<h2>Comments</h2>
+
+<ul>
+	<% @comments.each do |comment|%>
+	<li><%= comment.updated_at %>&mdash;<%= comment.body %></li>
+	<% end %>
+</ul>
+				
+<% form_for [@article, @comment], :url => shout_comments_path(@article) do |form| %>
+<p>
+	<%= form.label :body %>
+	<%= form.text_area :body %>
+</p>
+<p><%= form.submit %></p>
+<% end %>

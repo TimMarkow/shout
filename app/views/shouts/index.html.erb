@@ -1,6 +1,6 @@
 <p><%= link_to 'New', new_shout_path %></p>
 <ul>
-	<%= @articles.each do |article| %>
+	<% @articles.each do |article| %>
 		<li><%= link_to article.name, shout_path(article) %></li>
 	
 	<% end %>

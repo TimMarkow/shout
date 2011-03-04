@@ -11,8 +11,9 @@ Shout::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-    resources :shouts, :only => [:new, :create, :index, :show]
-
+    resources :shouts, :only => [:new, :create, :index, :show] do
+      resources :comments, :only => [:create]
+    end
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -48,8 +49,7 @@ Shout::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "shouts#new"
-
+    root :to =>  "shouts#index"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
